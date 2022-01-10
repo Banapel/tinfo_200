@@ -1,0 +1,87 @@
+//////////////////////////////////////////////////////////////////
+// Jasper Jung
+// TINFO-200C
+// L1mpg - First Lab Assignment
+// This program takes in user input on the number of miles driven
+// and the amount of gas consumed to calculate and show their
+// miles per gallon. 
+/////////////////////////////////////////////////////////////////
+// Change History
+// Date     Developer       Description of Change
+// 1/7/2022  Jasper Jung     File and Project created - implementation and testing
+// 1/7/2022  Jasper Jung     Added brief description
+
+using System;
+
+// the Mileage namespace holds the solution's project for doing the mpg calculator
+namespace Mileage
+{
+
+    // the main class which holds the mpg calculator program
+    class Program
+    {
+
+        // This program consists of three methods, presenting text
+        // and calculations based on the user input
+        static void Main(string[] args)
+        {
+            //program needs a UI user interface
+            // UI needs to tell the user two things:
+            Program p = new();
+            StartProgram();
+            GetInfo();
+            EndProgram();
+
+        }
+
+        //method to give the user information on the program
+        protected static void StartProgram()
+        {
+            Console.WriteLine(@"
+******************************************************
+***** Welcome to the Automobile Trip Calculator! *****
+******************************************************
+The purpose of this program is to determine the kind
+of fuel efficiency your car is getting.You will be
+asked to enter some basic information about your
+trip and the calculator will do the rest. 
+First you will be asked for the number of miles.
+You can enter this as a while number.Next you
+will supply the amount of fuel consumed.For this
+one you can use a fractional number such as 10.4,
+15.6, etc.Let's get started!
+-----------------------------------------------------
+");
+
+        }
+
+        // method to obtain information from the user: miles driven and gas consumption
+        // The two variables are then divided to get the trip report
+        protected static void GetInfo()
+
+        {
+            // get user input data
+            // get number of miles
+            Console.WriteLine("Enter the number of miles driven (ex. 297, 351): ");
+            int mD = int.Parse(Console.ReadLine());
+
+            // get amount of fuel used
+            Console.WriteLine("Enter the amount of fuel consumed(ex. 10.4, 15.6): ");
+            double fA = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("-----------------------------------------------------");
+
+            // take the user data and calcualte the fuel efficiency]
+            // the data is then outputted to the user
+            double result = Math.Round(mD / fA, 2);
+            Console.WriteLine($"With a total of " + mD + " miles driven and " +
+                fA + " gallons of fuel consumed, your fuel efficiency  \n" + "is " + result + " miles per gallon.\n ");
+        }
+
+        // method to tell the user that the program has ended
+        protected static void EndProgram()
+        {
+            Console.WriteLine("Thank you for using the Automobile Trip Calculator!");
+        }
+    }
+}
